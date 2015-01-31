@@ -1,4 +1,4 @@
-var Server = require('../info-bundling/lib');
+var Server = require('info-bundling');
 new Server().startServer(1337);
 
 var reachable = require('reachable');
