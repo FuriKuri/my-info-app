@@ -9,7 +9,7 @@
   "author": "Theo Pack",
   "license": "MIT",
   "dependencies": {
-    "info-bundling": "^0.1.1",
+    "info-bundling": "^0.1.2",
     "jenkins-build-status": "^0.1.0",
     "reachable": "^0.1.2"
   }
