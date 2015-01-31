@@ -1,0 +1,16 @@
+{
+  "name": "info-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Theo Pack",
+  "license": "MIT",
+  "dependencies": {
+    "info-bundling": "^0.1.1",
+    "jenkins-build-status": "^0.1.0",
+    "reachable": "^0.1.2"
+  }
+}
