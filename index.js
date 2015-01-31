@@ -1,5 +1,5 @@
-var server = require('info-bundling');
-server(1337);
+var Server = require('../info-bundling/lib');
+new Server().startServer(1337);
 
 var reachable = require('reachable');
 var jenkins = require('jenkins-build-status');
