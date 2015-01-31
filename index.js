@@ -64,7 +64,6 @@ var jenkinsToLevel = {
 	});
 }(['localhost', '192.168.0.107', '192.168.0.105'])); 
 
-
 (function(pages){ 
 	pages.forEach(function(page) {
 	  function update(client) {
