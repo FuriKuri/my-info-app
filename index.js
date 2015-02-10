@@ -16,7 +16,7 @@ var jenkinsToLevel = {
 	error: "error"
 };
 
-(function(jobs){ 
+(function(jobs){
 	jobs.forEach(function(job) {
 	  function update(client) {
 	  	jenkins.build({
@@ -29,7 +29,8 @@ var jenkinsToLevel = {
 				var msg = {
 					name: "Jenkins " + job,
 					status: result.status,
-					level: jenkinsToLevel[result.status]
+					level: jenkinsToLevel[result.status],
+					group: "JENKINS"
 				};
 				client.write(JSON.stringify(msg));
 			});
@@ -41,16 +42,17 @@ var jenkinsToLevel = {
 			}
 		);
 	});
-}(['Second', 'First', 'Third'])); 
+}(['Second', 'First', 'Third']));
 
-(function(ips){ 
+(function(ips){
 	ips.forEach(function(ip) {
 	  function update(client) {
 	  	reachable.ping(ip, 2, function(result) {
 				var msg = {
 					name: "IP Ping " + ip,
 					status: result.pingable.toString(),
-					level: result.pingable ? "ok" : "error"
+					level: result.pingable ? "ok" : "error",
+					group: "PING"
 				};
 				client.write(JSON.stringify(msg));
 			});
@@ -62,9 +64,9 @@ var jenkinsToLevel = {
 			}
 		);
 	});
-}(['localhost', '192.168.0.107', '192.168.0.105'])); 
+}(['localhost', '192.168.0.107', '192.168.0.105']));
 
-(function(pages){ 
+(function(pages){
 	pages.forEach(function(page) {
 	  function update(client) {
 	  	reachable.page(page.url, page.element, function(result) {
@@ -77,7 +79,8 @@ var jenkinsToLevel = {
 				var msg = {
 					name: page.url,
 					status: result.page.toString() + '/' + result.element.toString(),
-					level: level
+					level: level,
+					group: "SERVICES"
 				};
 				client.write(JSON.stringify(msg));
 			});
@@ -89,5 +92,5 @@ var jenkinsToLevel = {
 			}
 		);
 	});
-}([{url: 'https://duckduckgo.com/', element: 'pg-index'}, 
-	{url: 'http://192.168.0.107:8080/', element: 'jenkins'}])); 
+}([{url: 'https://duckduckgo.com/', element: 'pg-index'},
+	{url: 'http://192.168.0.107:8080/', element: 'jenkins'}]));

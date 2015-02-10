@@ -9,8 +9,8 @@
   "author": "Theo Pack",
   "license": "MIT",
   "dependencies": {
-    "info-bundling": "^0.2.0",
-    "jenkins-build-status": "^0.1.0",
-    "reachable": "^0.1.2"
+    "info-bundling": "^0.2.6",
+    "jenkins-build-status": "^0.1.2",
+    "reachable": "^0.1.5"
   }
 }
